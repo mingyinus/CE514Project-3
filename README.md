@@ -35,3 +35,7 @@ https://learn.adafruit.com/adafruit-ccs811-air-quality-sensor/arduino-wiring-tes
 
 
 <h2>Software for the Particle</h2>
+Online IDE
+The detailed instruction can be found on this website. Figure26 shows the interface of IDE.  
+https://docs.particle.io/guide/getting-started/build/photon/
+There are three functions for the Web IDE. They are Flash, Verify and Save.
