@@ -3,7 +3,7 @@
 
 
 
-## Hardware
+<h2> Hardware</h2>
 
 The follows are all controlled by the Spark Core using a common I2C bus where pin D0 is SDA and pin D1 is SCL. The displays (from left to right) are on I2C addresses 0x70, 0x71, and 0x72.
 
@@ -34,4 +34,4 @@ Library and related application for CO2 sensor can be found:
 https://learn.adafruit.com/adafruit-ccs811-air-quality-sensor/arduino-wiring-test
 
 
-<h1>Software for the Particle</h1>
+<h2>Software for the Particle</h2>
