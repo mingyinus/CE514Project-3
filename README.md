@@ -19,3 +19,5 @@ common I2C bus where pin D0 is SDA and pin D1 is SCL.
 The displays (from left to right) are on I2C addresses
 0x70, 0x71, and 0x72.
 
+<b>Adafruit CCS811 Air Quality Sensor</b>
+CCS811 sensor measures eCO2 (equivalent calculated carbon-dioxide) concentration within a range of 400 to 8192 parts per million (ppm), and TVOC (Total Volatile Organic Compound) concentration within a range of 0 to 1187 parts per billion (ppb). The default address is 0X5A.
