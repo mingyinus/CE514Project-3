@@ -62,8 +62,8 @@ Try to link the potentiometer to the LED light directly and adjust the light lev
 Only four legs will be connected: VCC  (3V3), GND (GND), SCL (D1), SDA (D0). The latter two legs are for data exchange. it uses I2C protocol to store data of temperature and humidity.  We can find it needs a power supply (3.3 VDC), which can be provided by photon. And SCL and SDA should connect to the D1 and D0 in the photon.A reference to the temperature sensor: https://github.com/finitespace/BME280
 
 <b>1.5.2. Adafruit Mini 8x8 LED Matrix w/I2C Backpack </b>
-Mini 8x8 LED Matrix is used to show the set system parameters. This LED Matrix also supports I2C protocol, which means it should connect to the D0 and D1 of Photon. It also needs a power supply. The 3.3VDC could be provided by Photon. Figure 20 shows the layout of LED.
-In addition, the default I2C address of Mini 8x8 LED Matrix is 0x70. Therefore, if we are going to use two LEDs in one bus, we should change the address of it. Figure 21 shows the back of the LED. We can change the address of a backpack very easily. Look on the back to find the two A0, A1 solder jumpers.
+Mini 8x8 LED Matrix is used to show the set system parameters. This LED Matrix also supports I2C protocol, which means it should connect to the D0 and D1 of Photon. It also needs a power supply. The 3.3VDC could be provided by Photon. 
+In addition, the default I2C address of Mini 8x8 LED Matrix is 0x70. Therefore, if we are going to use two LEDs in one bus, we should change the address of it. We can change the address of a backpack very easily. Look on the back to find the two A0, A1 solder jumpers.
 
 Library of Adafruit Mini 8x8 LED Matrix w/I2C Backpack can be found: https://github.com/adafruit/Adafruit_LED_Backpack
 
@@ -94,7 +94,7 @@ Therefore, the motion sensor should connect to the Analog point of Photon.  And 
 
 <h2>Software for the Particle</h2>
 <br> <b>Online IDE</b>
-The detailed instruction can be found on this website. Figure26 shows the interface of IDE.  
+The detailed instruction can be found on this website. 
 https://docs.particle.io/guide/getting-started/build/photon/
 There are three functions for the Web IDE. They are Flash, Verify and Save.
 •	Flash: Flashes the current code to the device. It initiates an over-the-air firmware update and loads the new software onto your device.
@@ -102,7 +102,7 @@ There are three functions for the Web IDE. They are Flash, Verify and Save.
 •	Save: Saves any changes you've made to your code.
 
 <br><b> Standalone Particle Dev</b>
-Standalone Particle Dev requires to install the software in your computer. It provides more advanced features that make managing large and complicated firmware projects fast and easy. The detailed direction can be found on the website below. Fig. 24 shows the interface of Local Particle Dev.
+Standalone Particle Dev requires to install the software in your computer. It provides more advanced features that make managing large and complicated firmware projects fast and easy. The detailed direction can be found on the website below. 
 https://www.particle.io/products/development-tools/particle-desktop-ide
  
 
@@ -135,18 +135,6 @@ On the right side of the console screen, we can see the functions and variables 
 
 <br><b>•	List for the device mode (Refer to the light of the Photon)</b>
 Device mode: The device mode of the Photon can be obtained through the LED light on the module. ( https://docs.particle.io/guide/getting-started/modes/photon/)
-Table 1. Modes of the Photon
-	Color	Mode
-	Standard mode	Breathe cyan	Connect to the Internet; users can call functions or flash code
-	Blink magenta	Update firmware or load an app
-	Blink green	Look for internet
-	Blink cyan	In the process of connecting to the cloud
-	Breathe white	The WIFI is off
-	Blink blue	Listening mode: Input to connect the WIFI
-	Breathe magenta	Safe mode: connects the Photon to the cloud, but does not run any application firmware. It is useful for 	troubleshooting
-	Trouble shooting mode	Breathe blue	WI-FI module is not connected to a network
-	Breathe green	Photon is connected to a Wi-Fi network but not to the cloud
-	Blink red	Exist errors with Photon
 
 <br><b>•	Some cloud functions</b>
 The full list of the Photon functions can be found: 
