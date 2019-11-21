@@ -118,9 +118,6 @@ digitalRead: This will read the digital value of a pin, which can be read as eit
 
 analogRead: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. analogRead is great for reading data from sensors.
 
-<br><b>	Coding  (Some comments have been added on the BME280 code)</b>
-The below link is to the code.
-
 <br><b>Run the code </b>
 The order of running code is Save, Flash, and Check. Before you check your code, you need to select your particle device in the pulldown tab – particle.
 
