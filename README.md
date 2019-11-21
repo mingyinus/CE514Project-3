@@ -5,7 +5,8 @@
 
 <h2> Hardware</h2>
 
-<b>1.1	Photon Introduction</b>
+<b>1.1	Photon 
+	<br>Introduction</b>
 <br>Photon is a cloud-based micro-controller platform. It is composed of a powerful ARM Cortex M3 microcontroller and a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero). The micro-controller is the brain for the device and run the application as you desired. It connects to sensors or devices through the IO board.
 
 The link to https://docs.particle.io/datasheets/wi-fi/photon-datasheet/ is the comprehensive description of Photon. Photon can also read data through SPI/I2C telecom protocols.  We can see that D0 and D1 can be used to read I2C protocol, and D2-D5 can be used to read SPI protocol, and A2 – A5 can be used to read SPI protocol.
