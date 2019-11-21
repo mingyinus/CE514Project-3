@@ -5,7 +5,83 @@
 
 <h2> Hardware</h2>
 
+<b>1.1	Photon Introduction</b>
+Photon is a cloud-based micro-controller platform. It is composed of a powerful ARM Cortex M3 microcontroller and a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero). The micro-controller is the brain for the device and run the application as you desired. It connects to sensors or devices through the IO board.
+
+The link to https://docs.particle.io/datasheets/wi-fi/photon-datasheet/ is the comprehensive description of Photon. Photon can also read data through SPI/I2C telecom protocols.  In Fig. 2, we can see that D0 and D1 can be used to read I2C protocol, and D2-D5 can be used to read SPI protocol. In Fig. 3, we can see that A2 – A5 can be used to read SPI protocol.
+
+Besides the microcontroller and WIFI-chip, Particle adds a rock solid 3.3VDC SMPS power supply, RF, and user interface components to the PØ on the Photon. The design is open source, so the users can easily integrate the Photon and sensors into their application.
+Connect the photon with Internet
+Follow the video: https://vimeo.com/178282058
+
+
 The follows are all controlled by the Spark Core using a common I2C bus where pin D0 is SDA and pin D1 is SCL. The displays (from left to right) are on I2C addresses 0x70, 0x71, and 0x72.
+<b>1.2	Breadboard</b>
+An electronics breadboard is referring to a solderless breadboard. The backside of the board to show the circuit connections, each metal stripe will have the same current. Central portions, separated, are horizontally connected. Both sides are vertically connected, are supposed to be connected to power supply. When using the Photon, we can get 5V and 3.3 V output from the module. The “-“ is the ground voltage for reference. Please click the link here https://www.youtube.com/watch?v=fq6U5Y14oM4&t=3s to learn more.
+ 
+Fig. 4 Breadboard structure
+<b>1.3	LED</b>
+Led light connection: longer leg in Fig. 5 is linked to positive of 3.3 V and the short leg to ground. 
+ 
+Fig. 5 LED light
+<b>1.4	The 1st round Test procedures</b>
+Step 1: Power the device
+Plug the USB cable into your power source: the power source can be power brick, your computer or another power source wired to the port on the module. Here we used the computer for the power supply. Then use the Photon to supply 3.3V (3V3) 5V (VIN) voltage to the breadboard, as shown in Fig. 5. 
+
+      
+Fig. 6 Power Photon
+ 
+Figure 6 Power LED
+Debugging:
+•	If your Photon is not blinking blue, hold down the SETUP button.
+•	If your Photon is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
+
+Step 2: Connect the Photon to the internet using the smartphone
+1.	Download the Particle App through the application store, as shown in Fig 6.
+2.	Sign up an account with Particle, as shown in Fig 6.
+3.	Press the plus icon and select the device you'd like to add. Then follow the instructions on the screen to connect your device to Wi-Fi, as shown in Fig 7.
+Debugging: 
+•	If this is your Photon's first time connecting, it will blink purple and may take 6-12 minutes for the updates, with the Photon restarting a few times in the process. Please do not restart or unplug your Photon during this time.
+•	If the device cannot be connected to WIFI via mobile apps, the Photon can connect with the WIFI over USB. This method requires to install the Particle CLI for your computer.
+ 	 	 
+       Fig. 6 Particle APP to be installed on your smartphone
+ 	 	 
+		
+ 
+Fig. 7 Connecting WiFi 
+Step 3: Test the LED
+A LED is wired to D0. The wire connection is shown in Fig. 8., and the user interface on the mobile app is shown in Fig. 9. We set it as digitalWrite as an output. When the voltage sensed was on high, the LED is lighted. If using the analog write, scroll left to right for different level of lighting level.
+  
+Fig. 8 Connection of a LED
+
+  
+Fig. 9 set the LED as digitalWrite as an output
+[OR: Blink the Photon on-board LED (D7) with the Particle App—Tinker screen. Tap D7 and make it in digitalWrite mode. Then tap the D7 circle, and the tiny blue LED on Photon should turn off or on.]
+<b>1.5	Overview of the other hardware</b>
+1)	Two Adafruit Mini 8x8 LED Matrix boards are the monitor screens.
+2)	A Bosch BME 280 is the temperature and humidity sensor.
+3)	Panasonic EKMB1101111 is the motion sensor.
+4)	Others include Potentiometer, wires, LEDs, and resistors 
+5)	A USB cable is used to connect with computer or power brick to provide power 
+Fig. 10 is an assembly of a control system. 
+ 
+ 
+Fig. 10 Connected devices in a Photon project
+
+<b>1.6	Potentiometer </b>
+The potentiometer has three legs: two legs for power connection and one is for output sending to the input board, as shown in Fig.11.
+ 
+Fig. 11 Potentiometer
+Test Potentiometer
+Try to link the potentiometer to the LED light directly and adjust the light level by switching the potentiometer without passing through Photon.
+ 
+Fig. 12 Test Potentiometer
+•	The potentiometer will be the input board A0, assign analog read, iPhone interface shows the voltage corresponding to the different position of the potentiometer.
+•	DO could be used to control light level through photon.
+  
+Fig. 13 connect Potentiometer
+
+
 
 <b>1. Temperature and humidity sensor BME280 </b>
 Only four legs will be connected: VCC  (3V3), GND (GND), SCL (D1), SDA (D0). The latter two legs are for data exchange. it uses I2C protocol to store data of temperature and humidity.  We can find it needs a power supply (3.3 VDC), which can be provided by photon. And SCL and SDA should connect to the D1 and D0 in the photon.A reference to the temperature sensor: https://github.com/finitespace/BME280
@@ -39,88 +115,18 @@ Online IDE
 The detailed instruction can be found on this website. Figure26 shows the interface of IDE.  
 https://docs.particle.io/guide/getting-started/build/photon/
 There are three functions for the Web IDE. They are Flash, Verify and Save.
-1	Hardware 
-1.1	Photon Introduction
-Photon is a cloud-based micro-controller platform. It is composed of a powerful ARM Cortex M3 microcontroller and a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero). The micro-controller is the brain for the device and run the application as you desired. It connects to sensors or devices through the IO board. Fig. 1 shows the outlook of the Photon and the diagram for the pins.
-           
-Fig. 1 Photon Structure
-•	D0-D7 are digital input/output points. The type of input or output can be defined in the program.
-•	A0-A5 are analog points of Photon. They can be defined by input or output in the program. 
-•	DAC, WKP can also be used as analog points. 
-•	The analog points can be converted to digital points in the program.
-The link to https://docs.particle.io/datasheets/wi-fi/photon-datasheet/ is the comprehensive description of Photon. Photon can also read data through SPI/I2C telecom protocols.  In Fig. 2, we can see that D0 and D1 can be used to read I2C protocol, and D2-D5 can be used to read SPI protocol. In Fig. 3, we can see that A2 – A5 can be used to read SPI protocol.
+
+
+<h2> Hardware </h2>
+
+
  
 Fig. 2 the Pins at the right side of the photon
  
 Fig. 3 the Pins at the left side of the photon
-Besides the microcontroller and WIFI-chip, Particle adds a rock solid 3.3VDC SMPS power supply, RF, and user interface components to the PØ on the Photon. The design is open source, so the users can easily integrate the Photon and sensors into their application.
-Connect the photon with Internet
-Follow the video: https://vimeo.com/178282058
 
-1.2	Breadboard
-An electronics breadboard is referring to a solderless breadboard. The backside of the board to show the circuit connections, each metal stripe will have the same current. Central portions, separated, are horizontally connected. Both sides are vertically connected, are supposed to be connected to power supply. When using the Photon, we can get 5V and 3.3 V output from the module. The “-“ is the ground voltage for reference. Please click the link here https://www.youtube.com/watch?v=fq6U5Y14oM4&t=3s to learn more.
- 
-Fig. 4 Breadboard structure
-1.3	LED
-Led light connection: longer leg in Fig. 5 is linked to positive of 3.3 V and the short leg to ground. 
- 
-Fig. 5 LED light
-1.4	The 1st round Test procedures
-Step 1: Power the device
-Plug the USB cable into your power source: the power source can be power brick, your computer or another power source wired to the port on the module. Here we used the computer for the power supply. Then use the Photon to supply 3.3V (3V3) 5V (VIN) voltage to the breadboard, as shown in Fig. 5. 
 
-      
-Fig. 6 Power Photon
- 
-Figure 6 Power LED
-Debugging:
-•	If your Photon is not blinking blue, hold down the SETUP button.
-•	If your Photon is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
-Step 2: Connect the Photon to the internet using the smartphone
-1.	Download the Particle App through the application store, as shown in Fig 6.
-2.	Sign up an account with Particle, as shown in Fig 6.
-3.	Press the plus icon and select the device you'd like to add. Then follow the instructions on the screen to connect your device to Wi-Fi, as shown in Fig 7.
-Debugging: 
-•	If this is your Photon's first time connecting, it will blink purple and may take 6-12 minutes for the updates, with the Photon restarting a few times in the process. Please do not restart or unplug your Photon during this time.
-•	If the device cannot be connected to WIFI via mobile apps, the Photon can connect with the WIFI over USB. This method requires to install the Particle CLI for your computer.
- 	 	 
-       Fig. 6 Particle APP to be installed on your smartphone
- 	 	 
-		
- 
-Fig. 7 Connecting WiFi 
-Step 3: Test the LED
-A LED is wired to D0. The wire connection is shown in Fig. 8., and the user interface on the mobile app is shown in Fig. 9. We set it as digitalWrite as an output. When the voltage sensed was on high, the LED is lighted. If using the analog write, scroll left to right for different level of lighting level.
-  
-Fig. 8 Connection of a LED
-
-  
-Fig. 9 set the LED as digitalWrite as an output
-[OR: Blink the Photon on-board LED (D7) with the Particle App—Tinker screen. Tap D7 and make it in digitalWrite mode. Then tap the D7 circle, and the tiny blue LED on Photon should turn off or on.]
-1.5	Overview of the other hardware
-1)	Two Adafruit Mini 8x8 LED Matrix boards are the monitor screens.
-2)	A Bosch BME 280 is the temperature and humidity sensor.
-3)	Panasonic EKMB1101111 is the motion sensor.
-4)	Others include Potentiometer, wires, LEDs, and resistors 
-5)	A USB cable is used to connect with computer or power brick to provide power 
-Fig. 10 is an assembly of a control system. 
- 
- 
-Fig. 10 Connected devices in a Photon project
-
-1.6	Potentiometer 
-The potentiometer has three legs: two legs for power connection and one is for output sending to the input board, as shown in Fig.11.
- 
-Fig. 11 Potentiometer
-Test Potentiometer
-Try to link the potentiometer to the LED light directly and adjust the light level by switching the potentiometer without passing through Photon.
- 
-Fig. 12 Test Potentiometer
-•	The potentiometer will be the input board A0, assign analog read, iPhone interface shows the voltage corresponding to the different position of the potentiometer.
-•	DO could be used to control light level through photon.
-  
-Fig. 13 connect Potentiometer
 1.7	Panasonic EKMB1101111 Motion sensor
 The motion sensor also has three legs. One for power in and one for ground. The other one is linked to the board as input A1 and led light D7 as an indicator, as shown in Fig.14.
  
